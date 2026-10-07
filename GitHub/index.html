@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nguyễn Anh Tuấn — Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- intro -->
+  <div id="intro">
+    <img src="./image/image (26).jpg" alt="Logo">
+    <h1>Nguyen Anh Tuan <br> Welcome My Portfolio!</h1>
+  </div>
+
+  <!-- background -->
+  <div class="background">
+        <video id="bgVideo" autoplay loop muted playsinline class="rain-bg">
+            <source src="./image/life-of-deer-moewalls-com.mp4" type="video/mp4">
+        </video>
+  </div>
+  <!-- container -->
+  <div class="container">
+    <header>
+        <div class="nav-bar">
+          <button class="burger" onclick="toggleMenu()">
+            <span class="burger-icon"></span>
+          </button>
+            <ul>
+                <li><a href="index.html">My Portfolio</a></li>
+                <li><a href="UserProfile.html"><i class="fa-solid fa-circle-user"></i> About</a></li>
+                <li><a href="Messenger.html"><i class="fa-brands fa-github"></i></i> Projects</a></li>
+                <li><a href="Subject_Management.html"><i class="fa-solid fa-folder-open"></i> Subject Management</a></li>
+                <li><a href="Groups.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                <li><input type="text" class="search-form" placeholder="Search..."></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- home -->
+    <main id="home">
+      <section class="hero" data-aos="fade-up">
+        <div class="hero-left">
+          <div class="img-box">
+            <img src="./image/image (26).jpg" alt="avatar">
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <h2>Hello, I'm <strong>Nguyen Anh Tuan</strong></h2>
+          <h3>Web Developer — I build modern, responsive, and user-friendly web applications.</h3>
+          <p>I specialize in front-end development (HTML, CSS, JavaScript) and I'm currently advancing my skills in React and Node.js. I focus on user experience, performance, and clean, maintainable code.</p>
+
+          <div class="skills" aria-hidden>
+            <div class="skill"><i class="fa-brands fa-html5"></i>HTML</div>
+            <div class="skill"><i class="fa-brands fa-css"></i>CSS</div>
+            <div class="skill"><i class="fa-brands fa-js"></i>JavaScript</div>
+            <div class="skill"><i class="fa-brands fa-react"></i>React (be studying)</div>
+            <div class="skill"><i class="fa-brands fa-github"></i>Github</div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn" href="#contact">Hire / Contact</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" data-aos="fade-up">
+        <div class="section-head"><h3>About me</h3></div>
+        <p class="muted">I am currently studying at Kyushu University of Information Science, majoring in IT. I am working part-time at a restaurant while developing my web development skills.</p>
+
+        <div style="margin-top:14px" class="grid">
+          <div class="project" data-aos="fade-up" data-aos-delay="50">
+            <h4>Short bio</h4>
+            <p>Passionate about web development, UI/UX, and performance optimization. Seeking to work in a fast-growing environment with the opportunity to learn from a mentor.</p>
+            <div class="tags"><span class="tag">Fukuoka</span><span class="tag">studying</span></div>
+          </div>
+
+          <div class="project" data-aos="fade-up" data-aos-delay="100">
+            <h4>Skills & Tools</h4>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+              <span class="tag"><i class="fa-brands fa-html5"></i>HTML</span><span class="tag"><i class="fa-brands fa-css"></i>CSS</span><span class="tag"><i class="fa-brands fa-js"></i>JavaScript</span><span class="tag"><i class="fa-brands fa-react"></i>React</span><span class="tag"><i class="fa-brands fa-github"></i>Github</span><span class="tag"><i class="fa-brands fa-php"></i>PHP</span>
+            </div>
+          </div>
+
+          <div class="project" data-aos="fade-up" data-aos-delay="150">
+            <h4>Languages</h4>
+            <p>Vietnamese (Native) <br> Japanese (JLPT N2 study) <br> English (Beginner)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" data-aos="fade-up">
+        <div class="section-head"><h3>Projects</h3></div>
+        <p class="muted">Featured Projects (click to visit the website)</p>
+
+        <div class="projects-wrapper">
+            <button class="scroll-btn left" onclick="scrollProjects('left')">&#10094;</button>
+            <button class="scroll-btn right" onclick="scrollProjects('right')">&#10095;</button>
+
+            <div class="grid" id="projectsGrid">
+            <article class="project" data-aos="zoom-in">
+              <video id="bgVideo-1" autoplay loop muted playsinline class="rain-bg">
+                <source src="./image/Green White Dark Simple Rain Daily Quote Mobile Video (1).mp4" type="video/mp4">
+              </video>
+              <h4>Food Order Page</h4>
+              <p class="muted">HTML • CSS • JS</p>
+              <div class="meta">
+                <div class="tags"><span class="tag">UI</span><span class="tag">Responsive</span></div>
+                <div class="links"><a href="#" aria-label="live demo">Live</a><a href="#" aria-label="github">Git</a></div>
+              </div>
+            </article>
+
+            <article class="project" data-aos="zoom-in" data-aos-delay="60">
+              <img src="./image/image (10).jpg" alt="project">
+              <h4>Portfolio Template</h4>
+              <p class="muted">HTML • CSS • JS</p>
+              <div class="meta">
+                <div class="tags"><span class="tag">Animation</span><span class="tag">Design</span></div>
+                <div class="links"><a href="#">Live</a><a href="#">Git</a></div>
+              </div>
+            </article>
+
+            <article class="project" data-aos="zoom-in" data-aos-delay="120">
+              <img src="./image/image (12).jpg" alt="project">
+              <h4>Mini Dashboard</h4>
+              <p class="muted">HTML • CSS • JS </p>
+              <div class="meta">
+                <div class="tags"><span class="tag">Data</span><span class="tag">Charts</span></div>
+                <div class="links"><a href="#">Live</a><a href="#">Git</a></div>
+              </div>
+            </article>
+
+            <article class="project" data-aos="zoom-in" data-aos-delay="120">
+              <img src="./image/image (14).jpg" alt="project">
+              <h4>Mini Dashboard</h4>
+              <p class="muted">HTML • CSS • JS </p>
+              <div class="meta">
+                <div class="tags"><span class="tag">Data</span><span class="tag">Charts</span></div>
+                <div class="links"><a href="#">Live</a><a href="#">Git</a></div>
+              </div>
+            </article>
+
+            <article class="project" data-aos="zoom-in" data-aos-delay="120">
+              <img src="./image/image (13).jpg" alt="project">
+              <h4>Mini Dashboard</h4>
+              <p class="muted">HTML • CSS • JS </p>
+              <div class="meta">
+                <div class="tags"><span class="tag">Data</span><span class="tag">Charts</span></div>
+                <div class="links"><a href="#">Live</a><a href="#">Git</a></div>
+              </div>
+            </article>
+
+            
+        </div>
+        </div>
+        
+      </section>
+
+      <!-- TIMELINE / EXPERIENCE -->
+      <section id="experience" data-aos="fade-up">
+        <div class="section-head"><h3>Experience</h3></div>
+        <div class="timeline">
+          <div class="item"><strong>Part-time server</strong> — Restaurant (2025 — present). Work evenings while studying web development.</div>
+          <div class="item"><strong>Studying</strong> — at Kyushu Joho University, majoring in IT</div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" data-aos="fade-up">
+        <div class="section-head"><h3>Contact</h3></div>
+        <p class="muted">Want to work together? Send me an email or use the form below.</p>
+
+        <div class="contact-grid">
+          <div class="project">
+            <h4>Thông tin</h4>
+            <p><strong>Email:</strong> <a href="mailto:youremail@example.com">z2242505@std.kiis.ac.jp</a></p>
+            <p><strong>Location:</strong> Fukuoka, Japan</p>
+            <div style="margin-top:8px;display:flex;gap:8px">
+              <a class="tag" href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a class="tag" href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
+
+          <form class="project" id="contactForm" onsubmit="handleContact(event)">
+            <label class="muted">Name</label>
+            <input class="input" type="text" name="name" required>
+            <label class="muted">Email</label>
+            <input class="input" type="email" name="email" required>
+            <label class="muted">Message</label>
+            <textarea name="message" rows="5" required></textarea>
+            <div style="margin-top:12px;text-align:right">
+              <button type="submit" class="btn">Send message</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> Nguyen Anh Tuan • Built with HTML/CSS/JS
+      </footer>
+    </main>
+  </div>
+   <div class="menu">
+      <nav>
+        <a style="animation-delay: 0.2s">About</a>
+        <a style="animation-delay: 0.3s">Portfolio</a>
+        <a style="animation-delay: 0.4s">Services</a>
+        <a style="animation-delay: 0.5s">Contact</a>
+      </nav>
+    </div>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

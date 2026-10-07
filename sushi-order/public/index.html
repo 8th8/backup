@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>寿司 博多魚がし | Order</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Language selection -->
+  <section id="view-lang" class="view lang-view">
+    <div class="lang-hero">
+      <div class="seal">魚</div>
+      <h1 class="brand">寿司 博多魚がし</h1>
+      <p class="brand-sub">SUSHI HAKATA UOGASHI</p>
+    </div>
+    <p class="lang-title">言語を選択 / Select language<br>选择语言 / 選擇語言 / 언어 선택</p>
+    <div id="lang-buttons" class="lang-buttons"></div>
+  </section>
+
+  <!-- Menu -->
+  <section id="view-menu" class="view" hidden>
+    <header class="topbar">
+      <div class="topbar-brand">
+        <span class="seal sm">魚</span>
+        <div>
+          <div class="topbar-name">寿司 博多魚がし</div>
+          <div class="topbar-table"><span data-t="table"></span> <b id="table-badge">-</b></div>
+        </div>
+      </div>
+      <button id="btn-change-lang" class="chip" type="button"></button>
+    </header>
+
+    <nav id="cat-tabs" class="cat-tabs" aria-label="categories"></nav>
+    <main id="menu-list" class="menu-list"></main>
+
+    <footer class="store-info">
+      <h3 data-t="storeInfo"></h3>
+      <dl>
+        <dt data-t="tel"></dt><dd><a href="tel:0924135223">092-413-5223</a></dd>
+        <dt data-t="hours"></dt><dd data-t="hoursVal"></dd>
+        <dt data-t="seats"></dt><dd data-t="seatsVal"></dd>
+        <dt data-t="smoking"></dt><dd data-t="smokingVal"></dd>
+      </dl>
+    </footer>
+
+    <button id="cart-bar" class="cart-bar" type="button" hidden>
+      <span class="cart-count" id="cart-count">0</span>
+      <span data-t="viewCart"></span>
+      <span class="cart-bar-total" id="cart-bar-total"></span>
+    </button>
+  </section>
+
+  <!-- Cart sheet -->
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-backdrop" id="sheet-backdrop"></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true">
+      <div class="sheet-head">
+        <h2 data-t="cart"></h2>
+        <button id="sheet-close" class="icon-btn" type="button" aria-label="close">✕</button>
+      </div>
+      <div id="cart-lines" class="cart-lines"></div>
+
+      <label class="field" id="table-field" hidden>
+        <span data-t="tableLabel"></span>
+        <input id="table-input" type="text" inputmode="numeric" maxlength="10" autocomplete="off">
+      </label>
+
+      <label class="field">
+        <span data-t="note"></span>
+        <textarea id="note-input" rows="2" maxlength="200"></textarea>
+      </label>
+
+      <div class="cart-total"><span data-t="total"></span><b id="cart-total"></b></div>
+      <p id="cart-error" class="error" hidden></p>
+      <button id="btn-send" class="btn-primary" type="button"></button>
+    </div>
+  </div>
+
+  <!-- Thank-you -->
+  <section id="view-thanks" class="view thanks-view" hidden>
+    <div class="seal big">魚</div>
+    <h2 data-t="thanks"></h2>
+    <p data-t="thanksSub" class="muted"></p>
+    <div class="order-box">
+      <div><span data-t="orderNo"></span> <b id="order-no"></b></div>
+      <div class="status-pill" id="order-status"></div>
+    </div>
+    <button id="btn-more" class="btn-primary" type="button"></button>
+  </section>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

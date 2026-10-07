@@ -1,0 +1,320 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: white;
+    background: #111;
+    line-height: 1.8;
+}
+
+/* ==========================VIDEO BACKGROUND========================== */
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -2;
+}
+
+.background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.45);
+}
+
+
+
+/* ==========================HEADER========================== */
+header {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter: blur(8px);
+    z-index:1000;
+}
+
+.logo {
+
+    font-size:30px;
+    font-weight:bold;
+    letter-spacing:3px;
+    color:white;
+}
+
+nav {
+    display:flex;
+    gap:25px;
+
+ 
+}
+
+nav a {
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+    position:relative;
+    font-weight: bold;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+nav a::after {
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    background:white;
+    bottom:-5px;
+    left:0;
+    transition:.3s;
+}
+
+nav a:hover {
+    transform: translateY(-5px) scale(1.06);
+    text-shadow:
+    0 4px 10px rgba(0,0,0,0.3),
+    0 0 20px rgba(0,0,0,0.15);
+}
+
+nav a:hover::after {
+    width:100%;
+}
+
+/* ==========================HERO========================== */
+
+.hero {
+    height:70vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    text-align:center;
+}
+
+#slide {
+    position:absolute;
+    width:100%;
+    height:70%;
+    object-fit:cover;
+    z-index:-1;
+    opacity:1;
+    border-radius: 20px;
+}
+#slide:hover {
+
+}
+
+.hero-text {
+    background:rgba(0,0,0,0.4);
+    padding:40px 70px;
+    border-radius:20px;
+    backdrop-filter:blur(5px);
+}
+
+
+.hero h1 {
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.hero p {
+    font-size:20px;
+}
+
+/* ==========================SECTION========================== */
+
+section {
+    width:85%;
+    margin:auto;
+    padding:10px;
+}
+
+section h2 {
+    text-align:center;
+    font-size:45px;
+    margin-bottom:50px;
+}
+
+/* ==========================INTRO========================= */
+.intro {
+    text-align:center;
+}
+
+.intro p {
+    max-width:900px;
+    margin:auto;
+    font-size:18px;
+    background:rgba(0,0,0,0.4);
+    padding:30px;
+    border-radius:20px;
+}
+
+/* ==========================GALLERY========================== */
+.gallery {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card {
+    background:rgba(255,255,255,0.12);
+    border-radius:20px;
+    overflow:hidden;
+    backdrop-filter:blur(8px);
+    transition:.4s;
+}
+
+.card:hover {
+    transform:translateY(-10px);
+    background:rgba(255,255,255,0.25);
+}
+
+.card img {
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card h3 {
+    text-align:center;
+    font-size:25px;
+    margin:15px 0;
+}
+
+.card p {
+    padding:0 20px 20px;
+    text-align:center;
+}
+
+/* ==========================SEASON BOX======================== */
+.season-box {
+    background:rgba(0,0,0,0.35);
+    padding:40px;
+    border-radius:30px;
+}
+
+.description {
+    text-align:center;
+    font-size:20px;
+    margin-top:40px;
+}
+
+
+/* ==========================DIARY========================= */
+#diary {
+    text-align:center;
+}
+
+textarea {
+    width:80%;
+    height:200px;
+    padding:20px;
+    font-size:18px;
+    border-radius:15px;
+    border:none;
+    resize:none;
+}
+
+#topBtn{
+position:fixed;
+right:30px;
+bottom:30px;
+display:none;
+border-radius:50%;
+width:50px;
+height:50px;
+font-size:25px;
+cursor:pointer;
+}
+
+button:hover {
+    transform:scale(1.1);
+}
+
+/* ==========================FOOTER========================== */
+footer {
+    text-align:center;
+    padding:40px;
+    background:rgba(0,0,0,0.5);
+}
+footer h2 {
+    font-size:25px;
+}
+
+#lightbox {
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.8);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:999;
+
+}
+
+
+#lightbox img {
+
+    max-width:80%;
+    max-height:80%;
+
+}
+
+
+#close {
+    position:absolute;
+    top:30px;
+    right:50px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+}
+
+.fade {
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.fade.show {
+    opacity:1;
+    transform:translateY(0);
+}

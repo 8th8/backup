@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <video id="bgVideo" autoplay loop muted playsinline class="rain-bg">
+            <source src="./image/life-of-deer-moewalls-com.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="nav-bar">
+        <div class="nav-bar-left">
+          <button class="burger" onclick="toggleMenu()">
+            <span class="burger-icon"></span>
+          </button>
+            <ul>
+                <li>
+                    <a href="index.html"><h2>九州情報大学</h2></a>
+                    <i class="fa-duotone fa-solid fa-graduation-cap"></i>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-bar-right">
+            <ul>
+                <li><a href="UserProfile.html"><i class="fa-solid fa-circle-user"></i> User Profile</a></li>
+                <li><a href="Messenger.html"><i class="fa-solid fa-message"></i> Messenger</a></li>
+                <li><a href="NewsFeed.html"><i class="fa-solid fa-newspaper"></i> News Feed</a></li>
+                <li><a href="Groups.html"><i class="fa-solid fa-layer-group"></i> Groups</a></li>
+                <li><a href="Events.html"><i class="fa-solid fa-calendar-check"></i> Events</a></li>
+                <li><a href="Notification.html"><i class="fa-solid fa-bell"></i> Notification</a></li>
+                <li><input type="text" class="search-form" placeholder="Search..."></li>
+            </ul>
+        </div>
+
+        <div class="glass-container">
+            <h2>Login </h2>
+            <form autocomplete="off">
+              <div class="input-group">
+                <input type="text" required>
+                <label>username</label>
+              </div>
+
+              <div class="input-group">
+                <input type="password" required>
+                <label>password</label>
+              </div>
+
+              <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot Password</a>
+              </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+            <div class="register-link">
+              <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+          </form>
+    </div>
+    
+    <div class="menu">
+      <nav>
+        <a style="animation-delay: 0.2s">About</a>
+        <a style="animation-delay: 0.3s">Portfolio</a>
+        <a style="animation-delay: 0.4s">Services</a>
+        <a style="animation-delay: 0.5s">Contact</a>
+      </nav>
+    </div>
+     
+    <script src="script.js"></script>
+</body>
+</html>

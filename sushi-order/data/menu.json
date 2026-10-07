@@ -1,0 +1,49 @@
+{
+  "categories": [
+    { "id": "set", "names": { "ja": "セット", "en": "Sets", "zh-CN": "套餐", "zh-TW": "套餐", "ko": "세트" } },
+    { "id": "nigiri", "names": { "ja": "にぎり", "en": "Nigiri", "zh-CN": "握寿司", "zh-TW": "握壽司", "ko": "니기리" } },
+    { "id": "sashimi", "names": { "ja": "刺身", "en": "Sashimi", "zh-CN": "生鱼片", "zh-TW": "生魚片", "ko": "사시미" } }
+  ],
+  "items": [
+    {
+      "id": "dontaku-set", "category": "set", "price": 2343, "image": "img/dontaku-set.jpg", "emoji": "🍣",
+      "names": { "ja": "どんたくセット", "en": "Dontaku Set", "zh-CN": "盛宴套餐", "zh-TW": "盛宴套餐", "ko": "돈타쿠 세트" },
+      "desc": { "ja": "握り盛り合わせと茶碗蒸し付きの人気セット", "en": "Popular assorted nigiri set with chawanmushi (steamed egg custard)", "zh-CN": "人气握寿司拼盘，附茶碗蒸", "zh-TW": "人氣握壽司拼盤，附茶碗蒸", "ko": "인기 니기리 모둠과 차완무시 세트" }
+    },
+    {
+      "id": "choito-ippai-set", "category": "set", "price": 1969, "image": "img/choito-ippai-set.jpg", "emoji": "🍺",
+      "names": { "ja": "ちょっと一杯セット", "en": "Quick Drink Set", "zh-CN": "小酌套餐", "zh-TW": "小酌套餐", "ko": "한잔 세트" },
+      "desc": { "ja": "刺身盛り合わせと生ビールのお得なセット", "en": "Sashimi assortment with a draft beer", "zh-CN": "生鱼片拼盘搭配生啤酒的实惠套餐", "zh-TW": "生魚片拼盤搭配生啤酒的超值套餐", "ko": "사시미 모둠과 생맥주 세트" }
+    },
+    {
+      "id": "ebi", "category": "nigiri", "price": 407, "image": "img/ebi.jpg", "emoji": "🍤",
+      "names": { "ja": "えび", "en": "Shrimp", "zh-CN": "虾", "zh-TW": "蝦", "ko": "새우" },
+      "desc": { "ja": "ぷりっとした食感のえびにぎり", "en": "Shrimp nigiri with a plump, springy texture", "zh-CN": "口感鲜嫩弹牙的虾握寿司", "zh-TW": "口感鮮嫩彈牙的蝦握壽司", "ko": "탱글탱글한 새우 니기리" }
+    },
+    {
+      "id": "tai", "category": "nigiri", "price": 451, "image": "img/tai.jpg", "emoji": "🐟",
+      "names": { "ja": "たい", "en": "Sea Bream", "zh-CN": "鲷鱼", "zh-TW": "鯛魚", "ko": "도미" },
+      "desc": { "ja": "上品な甘みの鯛のにぎり", "en": "Sea bream nigiri with a delicate sweetness", "zh-CN": "清甜细腻的鲷鱼握寿司", "zh-TW": "清甜細緻的鯛魚握壽司", "ko": "은은한 단맛의 도미 니기리" }
+    },
+    {
+      "id": "maguro-zukushi", "category": "nigiri", "price": 2376, "image": "img/maguro-zukushi.jpg", "emoji": "🍣",
+      "names": { "ja": "まぐろづくし", "en": "Tuna Lover's Platter", "zh-CN": "金枪鱼全家福", "zh-TW": "鮪魚全家福", "ko": "참치 모둠" },
+      "desc": { "ja": "赤身・中とろ・大とろなど、まぐろを味わい尽くす盛り合わせ", "en": "Lean, medium-fatty and fatty tuna nigiri in one platter", "zh-CN": "红身、中腹、大腹等多种金枪鱼部位拼盘", "zh-TW": "赤身、中腹、大腹等多種鮪魚部位拼盤", "ko": "붉은살, 중뱃살, 대뱃살 등 참치 부위별 모둠" }
+    },
+    {
+      "id": "aka-ebi", "category": "nigiri", "price": 506, "image": "img/aka-ebi.jpg", "emoji": "🦐",
+      "names": { "ja": "赤えび", "en": "Red Shrimp", "zh-CN": "赤虾", "zh-TW": "赤蝦", "ko": "붉은새우" },
+      "desc": { "ja": "ねっとりとした甘みの赤えび", "en": "Red shrimp with a rich, creamy sweetness", "zh-CN": "口感绵密、鲜甜的赤虾", "zh-TW": "口感綿密、鮮甜的赤蝦", "ko": "진한 단맛의 붉은새우" }
+    },
+    {
+      "id": "yaki-anago", "category": "nigiri", "price": 451, "image": "img/yaki-anago.jpg", "emoji": "🍢",
+      "names": { "ja": "焼きあなご", "en": "Grilled Conger Eel", "zh-CN": "烤星鳗", "zh-TW": "烤星鰻", "ko": "구운 붕장어" },
+      "desc": { "ja": "ふっくら香ばしく焼き上げたあなご", "en": "Soft, fragrant grilled conger eel", "zh-CN": "松软香醇的烤星鳗", "zh-TW": "鬆軟香醇的烤星鰻", "ko": "부드럽고 고소하게 구운 붕장어" }
+    },
+    {
+      "id": "sashimi-5", "category": "sashimi", "price": 2376, "image": "img/sashimi-5.jpg", "emoji": "🍱",
+      "names": { "ja": "刺身5点盛り", "en": "Sashimi 5-Piece Assortment", "zh-CN": "生鱼片五种拼盘", "zh-TW": "生魚片五種拼盤", "ko": "사시미 5종 모둠" },
+      "desc": { "ja": "旬の鮮魚5種の盛り合わせ", "en": "Five kinds of fresh seasonal fish", "zh-CN": "五种当季鲜鱼拼盘", "zh-TW": "五種當季鮮魚拼盤", "ko": "제철 생선 5종 모둠" }
+    }
+  ]
+}

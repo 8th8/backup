@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Menu</title>
+  <link rel="stylesheet" href="music.css">
+</head>
+<body>
+  
+  <div class="nav-bar">
+    <div class="nav-bar-left">
+      <button class="burger" onclick="toggleMenu()">
+        <span class="burger-icon"></span>
+      </button>
+
+      <ul>
+        <li><a href="index.html"><h2>Home Page</h2></a></li>
+      </ul>
+    </div>
+
+    <div class="nav-bar-right">
+      <ul>
+        <li><a href="index.html">Login</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><input type="text" class="search-form" placeholder="Search..."></li>
+      </ul>
+    </div>
+  </div>
+
+  
+
+  <div class="menu">
+    <nav>
+      <a style="animation-delay: 0.2s">About</a>
+      <a style="animation-delay: 0.3s">Portfolio</a>
+      <a style="animation-delay: 0.4s">Services</a>
+      <a style="animation-delay: 0.5s">Contact</a>
+    </nav>
+  </div>
+
+  <script>
+    const toggleMenu = () => {
+      document.body.classList.toggle("open");
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu | Lumière Table</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =========================
+           MENU PAGE
+        ========================= */
+
+        .menu-page {
+            background: #f8f5ef;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        .menu-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Page title */
+        .page-title {
+            text-align: center;
+            padding: 70px 20px 40px;
+        }
+
+        .page-title span {
+            display: block;
+            color: #a27b4e;
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .page-title h1 {
+            font-family: serif;
+            font-size: 42px;
+            font-weight: normal;
+            color: #3c3028;
+            margin-bottom: 15px;
+        }
+
+        .page-title p {
+            color: #777;
+            font-size: 15px;
+        }
+
+        /* Step */
+        .steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 45px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 8px;
+        }
+
+        .step.active {
+            color: #a27b4e;
+            font-weight: bold;
+        }
+
+        .step.active .step-number {
+            background: #a27b4e;
+            color: white;
+            border-color: #a27b4e;
+        }
+
+        .step-line {
+            width: 60px;
+            height: 1px;
+            background: #ddd;
+            margin: 0 15px;
+        }
+
+        /* Reservation summary */
+        .reservation-summary {
+            background: white;
+            border: 1px solid #e6ded3;
+            padding: 25px 30px;
+            margin-bottom: 40px;
+        }
+
+        .reservation-summary h2 {
+            font-family: serif;
+            font-size: 22px;
+            font-weight: normal;
+            color: #3c3028;
+            margin-bottom: 20px;
+        }
+
+        .reservation-info {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .info-item {
+            border-left: 2px solid #c5a47e;
+            padding-left: 15px;
+        }
+
+        .info-item small {
+            display: block;
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .info-item strong {
+            color: #3c3028;
+            font-size: 16px;
+        }
+
+        /* Menu category */
+        .menu-category {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .category-title h2 {
+            font-family: serif;
+            font-size: 28px;
+            font-weight: normal;
+            color: #3c3028;
+            margin: 0;
+        }
+
+        .category-title span {
+            margin-left: 15px;
+            color: #a27b4e;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        /* Menu grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: white;
+            border: 1px solid #e8e0d7;
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .menu-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background: #ddd;
+        }
+
+        .menu-content {
+            padding: 20px;
+        }
+
+        .menu-content h3 {
+            color: #3c3028;
+            font-family: serif;
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0 0 8px;
+        }
+
+        .menu-description {
+            color: #888;
+            font-size: 13px;
+            line-height: 1.7;
+            min-height: 45px;
+            margin-bottom: 12px;
+        }
+
+        .menu-price {
+            color: #a27b4e;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Quantity */
+        .quantity-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .quantity-area span {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #cdbba6;
+            background: white;
+            color: #6d5137;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quantity-btn:hover {
+            background: #a27b4e;
+            color: white;
+        }
+
+        .quantity {
+            width: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #3c3028;
+        }
+
+        /* Total */
+        .total-box {
+            position: sticky;
+            bottom: 20px;
+            background: #3c3028;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .total-label {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .total-price {
+            font-size: 25px;
+            font-weight: bold;
+            color: #d9b27c;
+        }
+
+        .next-button {
+            display: inline-block;
+            background: #a27b4e;
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .next-button:hover {
+            background: #84633e;
+        }
+
+        /* Empty menu */
+        .empty-message {
+            text-align: center;
+            color: #888;
+            padding: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reservation-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-title h1 {
+                font-size: 32px;
+            }
+
+            .steps {
+                transform: scale(0.85);
+            }
+
+            .step-line {
+                width: 25px;
+                margin: 0 5px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reservation-info {
+                grid-template-columns: 1fr;
+            }
+
+            .total-box {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="logo">
+        <a href="index.html">
+            <span>Lumière</span> Table
+        </a>
+    </div>
+
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="reservation.html" class="nav-reservation">
+            Reservation
+        </a>
+    </nav>
+
+</header>
+
+
+<main class="menu-page">
+
+    <!-- =========================
+         TITLE
+    ========================= -->
+
+    <section class="page-title">
+
+        <span>MENU SELECTION</span>
+
+        <h1>Choose Your Menu</h1>
+
+        <p>
+            ご希望のメニューをお選びください
+        </p>
+
+    </section>
+
+
+    <div class="menu-container">
+
+        <!-- =========================
+             STEP
+        ========================= -->
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                日時・人数
+            </div>
+
+            <div class="step-line"></div>
+
+            <div class="step active">
+                <div class="step-number">2</div>
+                メニュー
+            </div>
+
+            <div class="step-line"></div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                確認
+            </div>
+
+            <div class="step-line"></div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                完了
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             RESERVATION INFORMATION
+        ========================= -->
+
+        <section class="reservation-summary">
+
+            <h2>Reservation Information</h2>
+
+            <div class="reservation-info">
+
+                <div class="info-item">
+                    <small>DATE</small>
+                    <strong id="reservation-date">---</strong>
+                </div>
+
+                <div class="info-item">
+                    <small>TIME</small>
+                    <strong id="reservation-time">---</strong>
+                </div>
+
+                <div class="info-item">
+                    <small>GUESTS</small>
+                    <strong id="reservation-guests">---</strong>
+                </div>
+
+                <div class="info-item">
+                    <small>TABLE</small>
+                    <strong id="reservation-table">---</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COURSE
+        ========================= -->
+
+        <section class="menu-category">
+
+            <div class="category-title">
+                <h2>Course Menu</h2>
+                <span>おすすめコース</span>
+            </div>
+
+
+            <div class="menu-grid">
+
+                <!-- Course 1 -->
+                <div class="menu-card">
+
+                    <img
+                        class="menu-image"
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80"
+                        alt="Dinner Course"
+                    >
+
+                    <div class="menu-content">
+
+                        <h3>Lumière Dinner Course</h3>
+
+                        <p class="menu-description">
+                            前菜、スープ、メイン料理、デザートを楽しめるおすすめコース。
+                        </p>
+
+                        <div class="menu-price">
+                            ¥6,800 / 人
+                        </div>
+
+                        <div class="quantity-area">
+
+                            <span>数量</span>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('course1', -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span
+                                    class="quantity"
+                                    id="quantity-course1"
+                                >
+                                    0
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('course1', 1)"
+                                >
+                                    ＋
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Course 2 -->
+                <div class="menu-card">
+
+                    <img
+                        class="menu-image"
+                        src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=80"
+                        alt="Special Course"
+                    >
+
+                    <div class="menu-content">
+
+                        <h3>Special Chef Course</h3>
+
+                        <p class="menu-description">
+                            シェフおすすめの料理を中心にした特別なフルコース。
+                        </p>
+
+                        <div class="menu-price">
+                            ¥9,800 / 人
+                        </div>
+
+                        <div class="quantity-area">
+
+                            <span>数量</span>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('course2', -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span
+                                    class="quantity"
+                                    id="quantity-course2"
+                                >
+                                    0
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('course2', 1)"
+                                >
+                                    ＋
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Course 3 -->
+                <div class="menu-card">
+
+                    <img
+                        class="menu-image"
+                        src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=800&q=80"
+                        alt="Lunch Course"
+                    >
+
+                    <div class="menu-content">
+
+                        <h3>Classic Lunch Course</h3>
+
+                        <p class="menu-description">
+                            気軽に楽しめるランチ向けのコースメニュー。
+                        </p>
+
+                        <div class="menu-price">
+                            ¥4,500 / 人
+                        </div>
+
+                        <div class="quantity-area">
+
+                            <span>数量</span>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('course3', -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span
+                                    class="quantity"
+                                    id="quantity-course3"
+                                >
+                                    0
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('course3', 1)"
+                                >
+                                    ＋
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FOOD
+        ========================= -->
+
+        <section class="menu-category">
+
+            <div class="category-title">
+                <h2>À la Carte</h2>
+                <span>アラカルト</span>
+            </div>
+
+
+            <div class="menu-grid">
+
+                <!-- Caesar Salad -->
+                <div class="menu-card">
+
+                    <img
+                        class="menu-image"
+                        src="https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=800&q=80"
+                        alt="Caesar Salad"
+                    >
+
+                    <div class="menu-content">
+
+                        <h3>Caesar Salad</h3>
+
+                        <p class="menu-description">
+                            新鮮な野菜とチーズを使用したクラシックシーザーサラダ。
+                        </p>
+
+                        <div class="menu-price">
+                            ¥1,200
+                        </div>
+
+                        <div class="quantity-area">
+
+                            <span>数量</span>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('salad', -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span
+                                    class="quantity"
+                                    id="quantity-salad"
+                                >
+                                    0
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('salad', 1)"
+                                >
+                                    ＋
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Steak -->
+                <div class="menu-card">
+
+                    <img
+                        class="menu-image"
+                        src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80"
+                        alt="Beef Steak"
+                    >
+
+                    <div class="menu-content">
+
+                        <h3>Beef Steak</h3>
+
+                        <p class="menu-description">
+                            厳選した牛肉を香ばしく焼き上げた当店のおすすめ料理。
+                        </p>
+
+                        <div class="menu-price">
+                            ¥3,800
+                        </div>
+
+                        <div class="quantity-area">
+
+                            <span>数量</span>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('steak', -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span
+                                    class="quantity"
+                                    id="quantity-steak"
+                                >
+                                    0
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('steak', 1)"
+                                >
+                                    ＋
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Carbonara -->
+                <div class="menu-card">
+
+                    <img
+                        class="menu-image"
+                        src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                        alt="Carbonara"
+                    >
+
+                    <div class="menu-content">
+
+                        <h3>Carbonara</h3>
+
+                        <p class="menu-description">
+                            濃厚なクリームとチーズを使用したクラシックカルボナーラ。
+                        </p>
+
+                        <div class="menu-price">
+                            ¥1,800
+                        </div>
+
+                        <div class="quantity-area">
+
+                            <span>数量</span>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('carbonara', -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span
+                                    class="quantity"
+                                    id="quantity-carbonara"
+                                >
+                                    0
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('carbonara', 1)"
+                                >
+                                    ＋
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Soup -->
+                <div class="menu-card">
+
+                    <img
+                        class="menu-image"
+                        src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80"
+                        alt="Soup"
+                    >
+
+                    <div class="menu-content">
+
+                        <h3>French Onion Soup</h3>
+
+                        <p class="menu-description">
+                            玉ねぎの甘みを引き出したフレンチオニオンスープ。
+                        </p>
+
+                        <div class="menu-price">
+                            ¥900
+                        </div>
+
+                        <div class="quantity-area">
+
+                            <span>数量</span>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('soup', -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span
+                                    class="quantity"
+                                    id="quantity-soup"
+                                >
+                                    0
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('soup', 1)"
+                                >
+                                    ＋
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Salmon -->
+                <div class="menu-card">
+
+                    <img
+                        class="menu-image"
+                        src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80"
+                        alt="Salmon"
+                    >
+
+                    <div class="menu-content">
+
+                        <h3>Grilled Salmon</h3>
+
+                        <p class="menu-description">
+                            香ばしく焼き上げたサーモンにレモンソースを添えました。
+                        </p>
+
+                        <div class="menu-price">
+                            ¥2,600
+                        </div>
+
+                        <div class="quantity-area">
+
+                            <span>数量</span>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('salmon', -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span
+                                    class="quantity"
+                                    id="quantity-salmon"
+                                >
+                                    0
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('salmon', 1)"
+                                >
+                                    ＋
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Dessert -->
+                <div class="menu-card">
+
+                    <img
+                        class="menu-image"
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80"
+                        alt="Dessert"
+                    >
+
+                    <div class="menu-content">
+
+                        <h3>Chocolate Dessert</h3>
+
+                        <p class="menu-description">
+                            食後におすすめの濃厚なチョコレートデザート。
+                        </p>
+
+                        <div class="menu-price">
+                            ¥1,100
+                        </div>
+
+                        <div class="quantity-area">
+
+                            <span>数量</span>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('dessert', -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span
+                                    class="quantity"
+                                    id="quantity-dessert"
+                                >
+                                    0
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    onclick="changeQuantity('dessert', 1)"
+                                >
+                                    ＋
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TOTAL
+        ========================= -->
+
+        <div class="total-box">
+
+            <div>
+                <div class="total-label">
+                    選択したメニューの合計
+                </div>
+
+                <div class="total-price">
+                    ¥<span id="total-price">0</span>
+                </div>
+            </div>
+
+            <button
+                class="next-button"
+                onclick="goToConfirm()"
+            >
+                確認画面へ →
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    /*
+     * =========================================
+     * 1. MENU DATA
+     * =========================================
+     */
+
+    const menuData = {
+
+        course1: {
+            name: "Lumière Dinner Course",
+            price: 6800
+        },
+
+        course2: {
+            name: "Special Chef Course",
+            price: 9800
+        },
+
+        course3: {
+            name: "Classic Lunch Course",
+            price: 4500
+        },
+
+        salad: {
+            name: "Caesar Salad",
+            price: 1200
+        },
+
+        steak: {
+            name: "Beef Steak",
+            price: 3800
+        },
+
+        carbonara: {
+            name: "Carbonara",
+            price: 1800
+        },
+
+        soup: {
+            name: "French Onion Soup",
+            price: 900
+        },
+
+        salmon: {
+            name: "Grilled Salmon",
+            price: 2600
+        },
+
+        dessert: {
+            name: "Chocolate Dessert",
+            price: 1100
+        }
+
+    };
+
+
+    /*
+     * =========================================
+     * 2. SELECTED MENU
+     * =========================================
+     */
+
+    let selectedMenus = {};
+
+
+    /*
+     * =========================================
+     * 3. LOAD RESERVATION DATA
+     * =========================================
+     */
+
+    const reservationData =
+        JSON.parse(localStorage.getItem("reservationData"));
+
+
+    /*
+     * =========================================
+     * 4. CHECK RESERVATION DATA
+     * =========================================
+     */
+
+    if (!reservationData) {
+
+        alert("予約情報がありません。");
+
+        window.location.href = "reservation.html";
+
+    }
+
+
+    /*
+     * =========================================
+     * 5. DISPLAY RESERVATION INFORMATION
+     * =========================================
+     */
+
+    if (reservationData) {
+
+        document.getElementById("reservation-date").textContent =
+            reservationData.date;
+
+        document.getElementById("reservation-time").textContent =
+            reservationData.time;
+
+        document.getElementById("reservation-guests").textContent =
+            reservationData.guests + " 名";
+
+        document.getElementById("reservation-table").textContent =
+            "Table " + reservationData.table;
+
+    }
+
+
+    /*
+     * =========================================
+     * 6. CHANGE QUANTITY
+     * =========================================
+     */
+
+    function changeQuantity(menuId, change) {
+
+        let currentQuantity =
+            selectedMenus[menuId] || 0;
+
+        currentQuantity += change;
+
+
+        // 0未満にならないようにする
+        if (currentQuantity < 0) {
+            currentQuantity = 0;
+        }
+
+
+        // 最大10個まで
+        if (currentQuantity > 10) {
+            currentQuantity = 10;
+        }
+
+
+        selectedMenus[menuId] =
+            currentQuantity;
+
+
+        // HTMLに表示
+        document.getElementById(
+            "quantity-" + menuId
+        ).textContent = currentQuantity;
+
+
+        // 合計金額更新
+        updateTotal();
+
+    }
+
+
+    /*
+     * =========================================
+     * 7. CALCULATE TOTAL
+     * =========================================
+     */
+
+    function updateTotal() {
+
+        let total = 0;
+
+        Object.keys(selectedMenus).forEach(function(menuId) {
+
+            const quantity =
+                selectedMenus[menuId];
+
+            const price =
+                menuData[menuId].price;
+
+            total += price * quantity;
+
+        });
+
+
+        document.getElementById(
+            "total-price"
+        ).textContent =
+            total.toLocaleString("ja-JP");
+
+    }
+
+
+    /*
+     * =========================================
+     * 8. GO TO CONFIRM PAGE
+     * =========================================
+     */
+
+    function goToConfirm() {
+
+        const selectedItems = [];
+
+
+        Object.keys(selectedMenus).forEach(function(menuId) {
+
+            const quantity =
+                selectedMenus[menuId];
+
+
+            if (quantity > 0) {
+
+                selectedItems.push({
+
+                    id: menuId,
+
+                    name: menuData[menuId].name,
+
+                    price: menuData[menuId].price,
+
+                    quantity: quantity
+
+                });
+
+            }
+
+        });
+
+
+        /*
+         * 何も選択していない場合
+         */
+
+        if (selectedItems.length === 0) {
+
+            const result =
+                confirm(
+                    "メニューが選択されていません。\n" +
+                    "メニューなしで予約を続けますか？"
+                );
+
+
+            if (!result) {
+                return;
+            }
+
+        }
+
+
+        /*
+         * Reservation data に
+         * menu情報を追加
+         */
+
+        reservationData.menus =
+            selectedItems;
+
+
+        /*
+         * 合計金額
+         */
+
+        let total = 0;
+
+        selectedItems.forEach(function(item) {
+
+            total +=
+                item.price * item.quantity;
+
+        });
+
+
+        reservationData.totalPrice =
+            total;
+
+
+        /*
+         * localStorageに保存
+         */
+
+        localStorage.setItem(
+            "reservationData",
+            JSON.stringify(reservationData)
+        );
+
+
+        /*
+         * Confirmページへ
+         */
+
+        window.location.href =
+            "confirm.html";
+
+    }
+
+</script>
+
+</body>
+</html>

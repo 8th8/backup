@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="UserProfile.css">
+</head>
+<body>
+    <div class="background">
+        <video id="bgVideo" autoplay loop muted playsinline class="rain-bg">
+            <source src="./image/life-of-deer-moewalls-com.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="nav-bar">
+        <div class="nav-bar-left">
+            <ul>
+                <li>
+                    <a href="index.html"><h2>九州情報大学</h2></a>
+                    <i class="fa-duotone fa-solid fa-graduation-cap"></i>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-bar-right">
+            <ul>
+                <li><a href="UserProfile.html"><i class="fa-solid fa-circle-user"></i> User Profile</a></li>
+                <li><a href="Messenger.html"><i class="fa-solid fa-message"></i> Messenger</a></li>
+                <li><a href="NewsFeed.html"><i class="fa-solid fa-newspaper"></i> News Feed</a></li>
+                <li><a href="Groups.html"><i class="fa-solid fa-layer-group"></i> Groups</a></li>
+                <li><a href="Events.html"><i class="fa-solid fa-calendar-check"></i> Events</a></li>
+                <li><a href="Notification.html"><i class="fa-solid fa-bell"></i> Notification</a></li>
+                <li><input type="text" class="search-form" placeholder="Search..."></li>
+            </ul>
+        </div>
+    </div>
+
+    
+
+    <div class="profile-page">
+        <div class="cover-wrap">
+            <div id="cover" class="cover"></div>
+            <div class="cover-buttons">
+                <label class="btn">Thay ảnh bìa
+                    <input id="coverInput" type="file" accept="image/*">
+                </label>
+                <button id="resetCover" class="btn secondary">Đặt lại</button>
+            </div>
+        </div>
+
+        <div class="meta">
+            <div class="avatar-wrap">
+                <div class="avatar-frame">
+                    <div class="avatar" id="avatar">
+                        <img id="avatarImg" alt="avatar">
+                        <label class="edit-avatar">
+                            <input id="avatarInput" type="file" accept="image/*"><i class="fa-duotone fa-solid fa-camera"></i>
+                            <button></button>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-info">
+                <div class="name">Nguyễn Anh Tuấn</div>
+                <div class="small">1.5K followers • 1.6K following</div>
+            </div>
+        </div>
+    
+
+    
+        <div class="profile-tabs">
+            <ul class="profile-tabs-list">
+                <li><a href="">Bài viết</a></li>
+                <li><a href="">Giới thiệu</a></li>
+                <li><a href="">Ảnh</a></li>
+                <li><a href="">Nhóm</a></li>
+                <li><a href="">Sự kiện</a></li>
+                <li><a href="">Xem thêm▾</a></li>
+            </ul>
+            <div class="profile-tabs-Ellipsis">
+                <button>...</button>
+            </div>
+            
+        </div>
+
+        <div class="content">
+            <div class="about">
+                <div class="about-item">
+                    <h2>Giới thiệu</h2>
+                    <p>live a life you will remember </p>
+                </div>
+
+
+                <div class="chinhsua">
+                    <a href="index.html" class="chinhsua-btn">Chỉnh sửa tiểu sử</a>
+                </div>
+
+                <div class="Presonal-information">
+                    <ul>
+                        <li><i class="fa-duotone fa-solid fa-graduation-cap"></i><a href="">Học tại 九州情報大学</a> </li>
+                        <li><i class="fa-solid fa-house"></i><a href="">Sống tại Fukuoka-shi, Fukuoka, Japan</a></li>
+                        <li><i class="fa-solid fa-location-dot"></i><a href="">Đến từ Phú Thọ (thị xã)</a></li>
+                        <li><i class="fa-brands fa-square-instagram"></i><a href="">_NaT_0808</a></li>
+                    </ul>
+                </div>
+                
+                <div class="chinhsua">
+                    <a href="index.html" class="chinhsua-btn">Chỉnh sửa chi tiết</a>
+                </div>
+
+                <div class="Presonal-information-Card">
+                    <ul>
+                        <li><a href="">
+                            <img src="./image/image (17).jpg" alt="">
+                        </a></li>
+                        <li><a href="">
+                            <img src="./image/image (14).jpg" alt="">
+                        </a></li>
+                        <li><a href="">
+                            <img src="./image/image (9).jpg" alt="">
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="chinhsua">
+                    <a href="index.html" class="chinhsua-btn">Chỉnh sửa phần Đáng chú ý</a>
+                </div>
+
+                <div class="img">
+                    <div class="anh-xemtatcaanh">
+                        <a href="">Ảnh</a>
+                        <a href="">Xem tất cả ảnh</a>
+                    </div>
+                    <div class="img-list">
+                        <div class="img-list-1">
+                            <ul>
+                                <li><a href=""><img src="./image/image (16).jpg" alt=""></a></li>
+                                <li><a href=""><img src="./image/image (14).jpg" alt=""></a></li>
+                                <li><a href=""><img src="./image/image (9).jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                        <div class="img-list-2">
+                            <ul>
+                                <li><a href=""><img src="./image/image (15).jpg" alt=""></a></li>
+                                <li><a href=""><img src="./image/image (13).jpg" alt=""></a></li>
+                                <li><a href=""><img src="./image/image (7).jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                        <div class="img-list-3">
+                            <ul>
+                                <li><a href=""><img src="./image/image (26).jpg" alt=""></a></li>
+                                <li><a href=""><img src="./image/image (11).jpg" alt=""></a></li>
+                                <li><a href=""><img src="./image/image (12).jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                
+            </div>
+
+            <div class="user-post">
+                <div class="wrap-conten">
+                    <div class="create">
+                        <div class="create-Post-conten">
+                            <a href="">
+                                <img src="./image/image (26).jpg" alt="">
+                            </a>
+
+                            <input type="text" class="bandangnghigi" placeholder="Bạn đang nghĩ gì?">
+                        </div>
+                    
+
+                        <div class="create-Post-image">
+                            <ul>
+                                <li><a href=""><button><i class="fa-notdog fa-solid fa-video"></i> Video trực tiếp</button></a></li>
+                                <li><a href=""><button><i class="fa-solid fa-image"></i>Ảnh/Video</button></a></li>
+                                <li><a href=""><button><i class="fa-solid fa-circle-play"></i> Thước phim</button></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                        <div class="post">
+                            <div class="post-conten-1">
+                                <div class="post1">
+                                    <div class="post1-img">
+                                        <a href="">
+                                            <img src="./image/image (26).jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="post1-username">
+                                        <a href="">Nguyễn Anh Tuấn</a>
+                                        <p>8 tháng 8.<i class="fa-duotone fa-solid fa-earth-africa"></i></p>
+                                    </div>
+                            
+                                    <p>đã cập nhật ảnh bìa của anh ấy.</p>
+                                </div>
+                                
+                                <div class="post2">
+                                    <img src="./image/image (14).jpg" alt="">
+                                    <div class="icon">
+                                        <ul>
+                                            <li><a href=""><button>👍 </button></a></li>
+                                            <li><a href=""><button>❤️</button></a></li>
+                                            <li><a href=""><button>😆</button></a></li>
+                                        </ul>
+                                        <p>Thanh Hiếu, Huy Hoàng và 11 người khác</p>
+                                    </div>
+                                        
+                                    <div class="like-comment-share">
+                                        <ul>
+                                            <li><a href=""><button><i class="fa-regular fa-thumbs-up"></i> Thích</button></a></li>
+                                            <li><a href=""><button><i class="fa-regular fa-comment"></i> Bình luận</button></a></li>
+                                            <li><a href=""><button><i class="fa-solid fa-share"></i> Chia sẻ</button></a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="cmt">
+                                        <a href="">
+                                            <img src=".//image/image (26).jpg" alt="">
+                                        </a>
+
+                                        <input type="text" class="bandangnghigi" placeholder="Viết bình luận...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        </div>
+    </div>
+
+
+
+          
+    <script src="UserProfile.js"></script>
+</body>
+</html>

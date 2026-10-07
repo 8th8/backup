@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", "メイリオ", sans-serif;
+    background: #f3f6fa;
+    color: #333;
+}
+
+
+/* Header */
+header {
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    font-size: 30px;
+}
+
+header p {
+    margin-top: 8px;
+}
+
+
+/* Main layout */
+.container {
+    display: flex;
+    min-height: 650px;
+}
+
+
+/* Menu */
+aside {
+    width: 230px;
+    background: white;
+    padding: 25px;
+    box-shadow: 2px 0 10px #ddd;
+}
+
+aside h2 {
+    margin-bottom: 20px;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+
+/* Link trong menu */
+li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+
+/* Hover menu */
+li:hover,
+.active {
+    background: #2563eb;
+}
+
+
+li:hover a,
+.active {
+    color: white;
+}
+
+
+/* Table area */
+table {
+    margin: 40px;
+    width: calc(100% - 80px);
+    background: white;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+/* tiêu đề bảng */
+th {
+    background: #2563eb;
+    color: white;
+    padding: 12px;
+    height: 20px;
+    font-size: 16px;
+}
+
+
+/* dữ liệu */
+td {
+    padding: 12px;
+    height: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+/* Hover row */
+tr:hover {
+    background: #f1f5f9;
+}
+
+
+/* Link 編集 削除 */
+td a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+
+td a:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer */
+footer {
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+    width: 15%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 10%;
+}
+th:nth-child(3),
+td:nth-child(3) {
+    width: 20%;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+    width: 35%;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+    width: 10%;
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+    width: 10%;
+}

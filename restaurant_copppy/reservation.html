@@ -1,0 +1,1432 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>予約 | Lumière Table</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <style>
+
+        /* =========================================
+           RESERVATION PAGE
+        ========================================= */
+
+        .reservation-page {
+            min-height: 100vh;
+            padding: 80px 20px 100px;
+            background-color: #f8f6f2;
+        }
+
+        .reservation-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .reservation-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reservation-title p {
+            margin-bottom: 10px;
+
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 4px;
+
+            color: #9a7b4f;
+        }
+
+        .reservation-title h1 {
+            font-size: 42px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================================
+           STEP
+        ========================================= */
+
+        .reservation-steps {
+            max-width: 800px;
+            margin: 0 auto 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+
+            color: #aaa;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background-color: #ddd;
+
+            color: #fff;
+        }
+
+        .step.active {
+            color: #9a7b4f;
+        }
+
+        .step.active .step-number {
+            background-color: #9a7b4f;
+        }
+
+        .step-line {
+            width: 70px;
+            height: 1px;
+
+            margin: 0 12px;
+
+            background-color: #ddd;
+        }
+
+
+        /* =========================================
+           RESERVATION CARD
+        ========================================= */
+
+        .reservation-card {
+            max-width: 850px;
+            margin: 0 auto;
+
+            padding: 50px;
+
+            background-color: #fff;
+
+            border: 1px solid #e5e0d8;
+
+            box-shadow:
+                0 15px 45px rgba(0, 0, 0, 0.05);
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-section {
+            margin-bottom: 45px;
+        }
+
+        .form-section-title {
+            margin-bottom: 25px;
+
+            padding-bottom: 12px;
+
+            border-bottom: 1px solid #e5e0d8;
+
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+
+            color: #555;
+        }
+
+        .required {
+            margin-left: 5px;
+
+            font-size: 10px;
+
+            color: #a65a4a;
+        }
+
+        .form-group input,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+
+            color: #333;
+
+            background-color: #fff;
+
+            border: 1px solid #d8d2ca;
+
+            outline: none;
+
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+
+            border-color: #9a7b4f;
+        }
+
+
+        /* =========================================
+           GUEST COUNT
+        ========================================= */
+
+        .guest-selector {
+
+            display: flex;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .guest-button {
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid #d8d2ca;
+
+            background-color: #fff;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+        }
+
+        .guest-button:hover {
+
+            background-color: #9a7b4f;
+
+            border-color: #9a7b4f;
+
+            color: #fff;
+        }
+
+        #guestCount {
+
+            min-width: 50px;
+
+            text-align: center;
+
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+
+        /* =========================================
+           TABLE SELECTION
+        ========================================= */
+
+        .table-message {
+
+            margin-bottom: 25px;
+
+            padding: 15px 18px;
+
+            background-color: #f8f6f2;
+
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+
+            color: #666;
+        }
+
+        .table-list {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .table-card {
+
+            position: relative;
+
+            padding: 25px 15px;
+
+            text-align: center;
+
+            background-color: #fff;
+
+            border: 1px solid #ddd6ce;
+
+            cursor: pointer;
+
+            transition:
+                border-color 0.3s ease,
+                background-color 0.3s ease,
+                transform 0.2s ease;
+        }
+
+        .table-card:hover {
+
+            transform: translateY(-3px);
+
+            border-color: #9a7b4f;
+        }
+
+        .table-card.selected {
+
+            background-color: #f5eee3;
+
+            border: 2px solid #9a7b4f;
+        }
+
+        .table-card.unavailable {
+
+            background-color: #eee;
+
+            color: #aaa;
+
+            cursor: not-allowed;
+
+            border-color: #ddd;
+        }
+
+        .table-icon {
+
+            margin-bottom: 10px;
+
+            font-size: 30px;
+        }
+
+        .table-name {
+
+            margin-bottom: 5px;
+
+            font-size: 17px;
+        }
+
+        .table-seats {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            color: #777;
+        }
+
+        .table-status {
+
+            margin-top: 10px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+        }
+
+        .available {
+
+            color: #65805f;
+        }
+
+        .unavailable .table-status {
+
+            color: #a65a4a;
+        }
+
+
+        /* =========================================
+           SELECTED TABLE
+        ========================================= */
+
+        .selected-table-info {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 18px;
+
+            background-color: #f5eee3;
+
+            border-left: 3px solid #9a7b4f;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+        }
+
+        .selected-table-info.show {
+
+            display: block;
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .reservation-submit {
+
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 17px;
+
+            border: none;
+
+            background-color: #9a7b4f;
+
+            color: #fff;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: background-color 0.3s ease;
+        }
+
+        .reservation-submit:hover {
+
+            background-color: #7c613b;
+        }
+
+
+        /* =========================================
+           NOTICE
+        ========================================= */
+
+        .reservation-notice {
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            color: #888;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .reservation-page {
+
+                padding: 60px 15px 80px;
+            }
+
+            .reservation-title h1 {
+
+                font-size: 32px;
+            }
+
+            .reservation-card {
+
+                padding: 30px 20px;
+            }
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+            .table-list {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .step-line {
+
+                width: 30px;
+            }
+
+            .step {
+
+                font-size: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <a href="index.html">
+
+            <span class="logo-main">
+                Lumière
+            </span>
+
+            <span class="logo-sub">
+                TABLE
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <nav class="nav">
+
+        <a href="index.html">
+            ホーム
+        </a>
+
+        <a href="menu.html">
+            メニュー
+        </a>
+
+        <a href="index.html#about">
+            私たちについて
+        </a>
+
+        <a href="index.html#access">
+            アクセス
+        </a>
+
+        <a href="reservation.html"
+           class="nav-reservation">
+            予約する
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================
+     RESERVATION
+========================================= -->
+
+<main class="reservation-page">
+
+    <div class="reservation-container">
+
+
+        <!-- Title -->
+
+        <div class="reservation-title">
+
+            <p>
+                ONLINE RESERVATION
+            </p>
+
+            <h1>
+                ご予約
+            </h1>
+
+        </div>
+
+
+
+        <!-- Steps -->
+
+        <div class="reservation-steps">
+
+            <div class="step active">
+
+                <span class="step-number">
+                    1
+                </span>
+
+                <span>
+                    日時・人数
+                </span>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step">
+
+                <span class="step-number">
+                    2
+                </span>
+
+                <span>
+                    テーブル
+                </span>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step">
+
+                <span class="step-number">
+                    3
+                </span>
+
+                <span>
+                    確認
+                </span>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step">
+
+                <span class="step-number">
+                    4
+                </span>
+
+                <span>
+                    完了
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Reservation Card -->
+
+        <div class="reservation-card">
+
+
+            <!-- =================================
+                 DATE / TIME
+            ================================== -->
+
+            <section class="form-section">
+
+                <h2 class="form-section-title">
+                    ご来店日時
+                </h2>
+
+
+                <div class="form-row">
+
+
+                    <!-- Date -->
+
+                    <div class="form-group">
+
+                        <label for="reservationDate">
+
+                            ご来店日
+
+                            <span class="required">
+                                必須
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="date"
+                            id="reservationDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Time -->
+
+                    <div class="form-group">
+
+                        <label for="reservationTime">
+
+                            ご来店時間
+
+                            <span class="required">
+                                必須
+                            </span>
+
+                        </label>
+
+                        <select id="reservationTime">
+
+                            <option value="">
+                                時間を選択してください
+                            </option>
+
+                            <option value="17:00">
+                                17:00
+                            </option>
+
+                            <option value="17:30">
+                                17:30
+                            </option>
+
+                            <option value="18:00">
+                                18:00
+                            </option>
+
+                            <option value="18:30">
+                                18:30
+                            </option>
+
+                            <option value="19:00">
+                                19:00
+                            </option>
+
+                            <option value="19:30">
+                                19:30
+                            </option>
+
+                            <option value="20:00">
+                                20:00
+                            </option>
+
+                            <option value="20:30">
+                                20:30
+                            </option>
+
+                            <option value="21:00">
+                                21:00
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 GUEST COUNT
+            ================================== -->
+
+            <section class="form-section">
+
+                <h2 class="form-section-title">
+                    ご利用人数
+                </h2>
+
+
+                <div class="guest-selector">
+
+                    <button
+                        type="button"
+                        class="guest-button"
+                        id="minusGuest">
+                        −
+                    </button>
+
+
+                    <span id="guestCount">
+                        2名
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="guest-button"
+                        id="plusGuest">
+                        ＋
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 TABLE
+            ================================== -->
+
+            <section class="form-section">
+
+                <h2 class="form-section-title">
+                    テーブルを選択
+                </h2>
+
+
+                <div class="table-message">
+
+                    ご利用人数に合わせて
+                    ご希望のテーブルを選択してください。
+
+                </div>
+
+
+                <div class="table-list">
+
+
+                    <!-- Table A -->
+
+                    <div
+                        class="table-card"
+                        data-table="A"
+                        data-seats="2"
+                    >
+
+                        <div class="table-icon">
+                            ◯
+                        </div>
+
+                        <div class="table-name">
+                            Table A
+                        </div>
+
+                        <div class="table-seats">
+                            2名席
+                        </div>
+
+                        <div class="table-status available">
+                            空席
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Table B -->
+
+                    <div
+                        class="table-card"
+                        data-table="B"
+                        data-seats="2"
+                    >
+
+                        <div class="table-icon">
+                            ◯
+                        </div>
+
+                        <div class="table-name">
+                            Table B
+                        </div>
+
+                        <div class="table-seats">
+                            2名席
+                        </div>
+
+                        <div class="table-status available">
+                            空席
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Table C -->
+
+                    <div
+                        class="table-card"
+                        data-table="C"
+                        data-seats="4"
+                    >
+
+                        <div class="table-icon">
+                            ◯
+                        </div>
+
+                        <div class="table-name">
+                            Table C
+                        </div>
+
+                        <div class="table-seats">
+                            4名席
+                        </div>
+
+                        <div class="table-status available">
+                            空席
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Table D -->
+
+                    <div
+                        class="table-card"
+                        data-table="D"
+                        data-seats="4"
+                    >
+
+                        <div class="table-icon">
+                            ◯
+                        </div>
+
+                        <div class="table-name">
+                            Table D
+                        </div>
+
+                        <div class="table-seats">
+                            4名席
+                        </div>
+
+                        <div class="table-status unavailable">
+                            予約済み
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Table E -->
+
+                    <div
+                        class="table-card"
+                        data-table="E"
+                        data-seats="6"
+                    >
+
+                        <div class="table-icon">
+                            ◯
+                        </div>
+
+                        <div class="table-name">
+                            Table E
+                        </div>
+
+                        <div class="table-seats">
+                            6名席
+                        </div>
+
+                        <div class="table-status available">
+                            空席
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Table F -->
+
+                    <div
+                        class="table-card"
+                        data-table="F"
+                        data-seats="6"
+                    >
+
+                        <div class="table-icon">
+                            ◯
+                        </div>
+
+                        <div class="table-name">
+                            Table F
+                        </div>
+
+                        <div class="table-seats">
+                            6名席
+                        </div>
+
+                        <div class="table-status available">
+                            空席
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Selected table -->
+
+                <div
+                    class="selected-table-info"
+                    id="selectedTableInfo"
+                >
+
+                    選択したテーブル：
+
+                    <strong id="selectedTableName">
+                        -
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 NEXT
+            ================================== -->
+
+            <button
+                type="button"
+                class="reservation-submit"
+                id="nextButton"
+            >
+
+                メニュー選択へ進む
+
+            </button>
+
+
+            <p class="reservation-notice">
+
+                ※ ご予約時間から15分以上遅れる場合は、
+                お電話にてご連絡ください。<br>
+
+                ※ ご予約内容は次の画面でご確認いただけます。
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer">
+
+    <div class="footer-logo">
+        Lumière Table
+    </div>
+
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            ホーム
+        </a>
+
+        <a href="menu.html">
+            メニュー
+        </a>
+
+        <a href="reservation.html">
+            予約
+        </a>
+
+    </div>
+
+
+    <p class="copyright">
+
+        © 2026 Lumière Table.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+    /* =========================================
+       Guest Count
+    ========================================= */
+
+    let guestCount = 2;
+
+    const guestDisplay =
+        document.getElementById("guestCount");
+
+    const minusButton =
+        document.getElementById("minusGuest");
+
+    const plusButton =
+        document.getElementById("plusGuest");
+
+
+    function updateGuestCount() {
+
+        guestDisplay.textContent =
+            guestCount + "名";
+
+        updateTableAvailability();
+
+    }
+
+
+    minusButton.addEventListener(
+        "click",
+        function () {
+
+            if (guestCount > 1) {
+
+                guestCount--;
+
+                updateGuestCount();
+
+            }
+
+        }
+    );
+
+
+    plusButton.addEventListener(
+        "click",
+        function () {
+
+            if (guestCount < 10) {
+
+                guestCount++;
+
+                updateGuestCount();
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================================
+       Table Selection
+    ========================================= */
+
+    const tableCards =
+        document.querySelectorAll(".table-card");
+
+    const selectedTableInfo =
+        document.getElementById(
+            "selectedTableInfo"
+        );
+
+    const selectedTableName =
+        document.getElementById(
+            "selectedTableName"
+        );
+
+
+    let selectedTable = null;
+
+
+    tableCards.forEach(function (card) {
+
+        card.addEventListener(
+            "click",
+            function () {
+
+                /* Already unavailable */
+
+                if (
+                    card.classList.contains(
+                        "unavailable"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                /* Remove previous selection */
+
+                tableCards.forEach(
+                    function (item) {
+
+                        item.classList.remove(
+                            "selected"
+                        );
+
+                    }
+                );
+
+
+                /* Select current table */
+
+                card.classList.add(
+                    "selected"
+                );
+
+
+                selectedTable =
+                    card.dataset.table;
+
+
+                selectedTableName.textContent =
+                    "Table " + selectedTable;
+
+
+                selectedTableInfo.classList.add(
+                    "show"
+                );
+
+            }
+        );
+
+    });
+
+
+
+    /* =========================================
+       Table Availability
+    ========================================= */
+
+    function updateTableAvailability() {
+
+        tableCards.forEach(
+            function (card) {
+
+                const seats =
+                    Number(
+                        card.dataset.seats
+                    );
+
+
+                /* Keep already reserved table */
+
+                if (
+                    card.dataset.table === "D"
+                ) {
+
+                    return;
+
+                }
+
+
+                if (
+                    seats < guestCount
+                ) {
+
+                    card.classList.add(
+                        "unavailable"
+                    );
+
+                    card.querySelector(
+                        ".table-status"
+                    ).textContent =
+                        "人数超過";
+
+                    card.querySelector(
+                        ".table-status"
+                    ).classList.remove(
+                        "available"
+                    );
+
+                    card.classList.remove(
+                        "selected"
+                    );
+
+                }
+                else {
+
+                    card.classList.remove(
+                        "unavailable"
+                    );
+
+                    card.querySelector(
+                        ".table-status"
+                    ).textContent =
+                        "空席";
+
+                    card.querySelector(
+                        ".table-status"
+                    ).classList.add(
+                        "available"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* Reset selected table */
+
+        selectedTable = null;
+
+        selectedTableInfo.classList.remove(
+            "show"
+        );
+
+    }
+
+
+
+    /* =========================================
+       Date
+    ========================================= */
+
+    const dateInput =
+        document.getElementById(
+            "reservationDate"
+        );
+
+
+    /* Minimum date = today */
+
+    const today =
+        new Date()
+            .toISOString()
+            .split("T")[0];
+
+
+    dateInput.min = today;
+
+
+
+    /* =========================================
+       Next Button
+    ========================================= */
+
+    const nextButton =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    nextButton.addEventListener(
+        "click",
+        function () {
+
+            const date =
+                dateInput.value;
+
+
+            const time =
+                document.getElementById(
+                    "reservationTime"
+                ).value;
+
+
+            /* Validation */
+
+            if (!date) {
+
+                alert(
+                    "ご来店日を選択してください。"
+                );
+
+                return;
+
+            }
+
+
+            if (!time) {
+
+                alert(
+                    "ご来店時間を選択してください。"
+                );
+
+                return;
+
+            }
+
+
+            if (!selectedTable) {
+
+                alert(
+                    "テーブルを選択してください。"
+                );
+
+                return;
+
+            }
+
+
+            /* Save data */
+
+            const reservationData = {
+
+                date: date,
+
+                time: time,
+
+                guests: guestCount,
+
+                table: selectedTable
+
+            };
+
+
+            localStorage.setItem(
+                "reservationData",
+                JSON.stringify(
+                    reservationData
+                )
+            );
+
+
+            /* Next page */
+
+            window.location.href =
+                "menu.html";
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
+

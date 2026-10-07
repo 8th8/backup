@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="background">
+    <video id="bgVideo" autoplay loop muted playsinline class="rain-bg">
+      <source src="./image/Green White Dark Simple Rain Daily Quote Mobile Video (1).mp4" type="video/mp4">
+    </video>
+  </div>
+
+   <button id="soundButton">🔇</button>
+
+  <div class="nav-bar">
+      <div class="nav-bar-1">
+        <ul>
+          <li><a href="index.html"><h2>Home Page</h2></a></li>
+        </ul>
+      </div>
+
+      <div class="nav-bar-2">
+        <ul>
+          <li><a href="music.html">My Music</a></li>
+        
+          <li><input type="text" class="search-form" placeholder="Search..."></li>        
+        </ul>
+      </div>
+  </div>
+
+  <div class="glass-container">
+    <h2>Login </h2>
+    <form autocomplete="off">
+      <div class="input-group">
+        <input type="text" required>
+        <label>username</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" required>
+        <label>password</label>
+      </div>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="#">Forgot Password</a>
+      </div>
+
+    <button type="submit" class="login-btn">Login</button>
+
+    <div class="register-link">
+      <p>Don't have an account? <a href="#">Register</a></p>
+    </div>
+
+    </form>
+  </div>
+  <script src="script.js"></script>
+  
+
+</body>
+</html>
