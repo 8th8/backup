@@ -1,5 +1,5 @@
-from scipy.misc import derivative
+import pandas as pd
 
-h = 1e-5
-val = derivative(lambda x: x**2 + 1, 1, h)
-print(val)
+df = pd.read_csv("dazaifu.csv", encoding="Shift_JIS", index_col=0)
+
+print(df.loc["2024/4/5", "最高気温(℃)"])
