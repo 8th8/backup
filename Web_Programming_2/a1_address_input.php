@@ -135,7 +135,7 @@
     <!----------- Background ----------->
     <div class="background">
         <video id="bgVideo" autoplay loop muted playsinline class="rain-bg">
-            <source src="./image/life-of-deer-moewalls-com.mp4" type="video/mp4">
+            <source src="/Web_Programming_2/images/life-of-deer-moewalls-com.mp4" type="video/mp4">
         </video>
     </div>
 
