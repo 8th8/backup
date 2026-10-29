@@ -77,7 +77,7 @@ CREATE TABLE `reservations` (
   `reservation_code` varchar(20) NOT NULL,
   `table_id` int(10) UNSIGNED DEFAULT NULL,
   `customer_name` varchar(100) NOT NULL,
-  `phone` varchar(20) NOT NULL,
+  `customer_phone` varchar(20) NOT NULL,
   `reservation_date` date NOT NULL,
   `reservation_time` time NOT NULL,
   `party_size` tinyint(3) UNSIGNED NOT NULL,

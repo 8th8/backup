@@ -49,10 +49,10 @@
 
 ###  Các tên class thường dùng trong Main
 # ----------- Bố cục tổng thể ------------------
-`main`	                    Khu vực nội dung chính (<main>)
+`main`	                    Khu vực nội dung chính      <main>
 `main__inner`	            Khung nội dung bên trong
 `main__container`	        Khung giới hạn chiều rộng
-`main__section`	            Một khu vực nội dung (<section>)
+`main__section`	            Một khu vực nội dung        <section>
 `main__content`	            Khu vực chứa nội dung
 `main__sidebar`	            Thanh nội dung bên cạnh
 `main__breadcrumb`	        Đường dẫn điều hướng phân cấp
@@ -63,15 +63,30 @@
 `hero`	                    Khối Hero
 `hero__inner`	            Khung nội dung bên trong Hero
 `hero__content`         	Khu vực chứa nội dung
-`hero__title`	            Tiêu đề chính
+`hero__title`	            Tiêu đề chính   <h1>
 `hero__subtitle`	        Tiêu đề phụ
-`hero__description`	        Nội dung mô tả
+`hero__description`	        Nội dung mô tả  </p>
 `hero__image`	            Ảnh minh họa
 `hero__background`	        Ảnh hoặc nền trang trí
 `hero__button`	            Nút hành động
 `hero__actions`	            Khu vực chứa các nút hành động
 `hero__badge`	            Nhãn nổi bật
 `hero__slider`	            Khu vực trình chiếu ảnh
+# ---------------Reservation — Khu vực đặt bàn----------------------------
+`reservation`	            Toàn bộ khu vực đặt bàn
+`reservation__inner`	    Khung nội dung bên trong
+`reservation__header`	    Tiêu đề khu vực đặt bàn
+`reservation__title`	    Tiêu đề ご予約
+`reservation__description`	Phần mô tả
+`reservation__form`	        Form đặt bàn
+`reservation__section`	    Một nhóm nội dung
+`reservation__label`	    Nhãn của ô nhập liệu
+`reservation__input`	    Ô nhập liệu
+`reservation__select`	    Danh sách lựa chọn
+`reservation__textarea`	    Ô nhập ghi chú
+`reservation__button`	    Nút thao tác
+`reservation__note`	        Ghi chú cho khách hàng
+
 # -------------Features — Khu vực tính năng, dịch vụ--------------------------------
 `features`	                Khối giới thiệu tính năng
 `features__container`	    Khung chứa nội dung
@@ -261,3 +276,6 @@ html
                 ├── .footer__copyright
                 └── .footer__legal
 # ---------------------------------------------------------------------------------
+
+## Những lưu ý:
+1. Không được lồng <form bên trong một form khác (Trình duyệt có thể tự xử lý lại DOM khiến nút Submit và các trường nhập không hoạt động như dự kiến.)
