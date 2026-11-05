@@ -52,6 +52,8 @@
 - `delta` :  phần thay đổi/chênh lệch
 - `set up` :  thiết lập
 - `track` :  theo dõi
+- `query`: truy vấn
+- `fetchAll`: lấy tất cả
 
 
 

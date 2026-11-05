@@ -94,12 +94,12 @@ Mở Markdown Preview ở bên cạnh file Markdown đang viết.
 
 
 | Nhóm | Ý nghĩa | Lệnh |
-|---|---|---|
-| DDL | Tạo/thay đổi cấu trúc Database |CREATE, ALTER, DROP, TRUNCATE |
-| DML | Thêm/sửa/xóa dữ liệu |INSERT, UPDATE, DELETE |
-| DQL | Truy vấn dữ liệu |SELECT |
-| DCL | Phân quyền |GRANT, REVOKE |
-| TCL | Quản lý transaction |COMMIT, ROLLBACK |
+|---   |------ --- --- --- --- --- -----|---------------------         |
+| DDL  | Tạo/thay đổi cấu trúc Database |CREATE, ALTER, DROP, TRUNCATE |
+| DML  | Thêm/sửa/xóa dữ liệu           |INSERT, UPDATE, DELETE        |
+| DQL  | Truy vấn dữ liệu               |SELECT                        |
+| DCL  | Phân quyền                     |GRANT, REVOKE                 |
+| TCL  | Quản lý transaction            |COMMIT, ROLLBACK              |
 
 ### Database
 
@@ -118,10 +118,6 @@ Xóa Database:
 `DROP DATABASE school;`
 
 
-### Table
-
-Tạo bảng:
-`CREATE TABLE`
 
 
 

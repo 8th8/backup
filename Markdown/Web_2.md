@@ -70,10 +70,10 @@ $stmt = $dbh->query($sql);
 
 foreach ($stmt as $row) {
 
-    $name = $row['name'];
+    $name =  $row['name'];
     $email = $row['email'];
     $phone = $row['phone'];
-    $wage = $row['hourly_wage'];
+    $wage =  $row['hourly_wage'];
     $trans = $row['trans_expense'];
     $insur = $row['insurance'];
 

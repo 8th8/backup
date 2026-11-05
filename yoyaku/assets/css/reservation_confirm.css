@@ -173,8 +173,10 @@ ul {
 /*----------reservation__form-input -------- */
 .reservation__form-input {
     margin: 30px 32px 50px;
+    
 }
 .main__form-group {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
@@ -182,10 +184,14 @@ ul {
 }
 
 .reservation-form__column {
-    min-width: 0;
+    width: 600px;
+    
+
 }
 
 .main__form-label {
+    width: 150px;
+    min-height: 40px;
     margin-left: 10px;
     font-size: 16px;
     font-weight: bold;
@@ -195,7 +201,7 @@ ul {
     display: block;
     width: 380px;
     min-width: 0;
-    min-height: 50px;
+    min-height: 40px;
     margin: 8px 0 20px;
     padding: 12px;
     border: 1px solid #cccccc;
@@ -227,8 +233,12 @@ ul {
 }
 
 .reservation__form-back {
-    background-color: #cccccc;
-    color: #222222;
+    border: 2px solid #1B2440;
+    color: #1B2440;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
 }
 
 .reservation__form-submit {
@@ -271,4 +281,17 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.form__customer-name,
+.form__phone-number,
+.form__date,
+.form__arrival-time,
+.form__number-of-guests,
+.form__special-requests
+ {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
 }

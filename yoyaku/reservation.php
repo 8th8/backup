@@ -1,4 +1,5 @@
 <?php date_default_timezone_set('Asia/Tokyo'); ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -58,14 +59,14 @@
                     </section>
                 </div>
 
-                <form action="reservation_insert.php" method="POST" class="reservation__form-input">
+                <form action="reservation_confirm.php" method="POST" class="reservation__form-input">
                     <div class="main__form-group">
                         <div class="reservation-form__column">
 
                             <div class="form__date">
                                 <div class="main__form-label">ご来店日</div>
-                                <input type="date" lang="ja" class="main__form-input" id="reservation_date" name="reservation_date" required
-                                    min="<?= date('Y-m-d') ?>">
+                                <input type="date" lang="ja-JP" class="main__form-input" id="reservation_date"
+                                    name="reservation_date" required min="<?= date('Y-m-d') ?>">
                             </div>
 
                             <div class="form__number-of-guests">
@@ -96,18 +97,49 @@
 
                         <div class="reservation-form__column">
                             <div class="form__arrival-time">
-                                <label for="arrival_time" class="main__form-label">ご来店時間</label>
-                                <input type="time" class="main__form-input" id="arrival_time" name="reservation_time" required>
+                                <label for="arrival_time" class="main__form-label">
+                                    ご来店時間
+                                </label>
+
+                                <select class="main__form-input" id="arrival_time" name="reservation_time" required>
+
+                                    <option value="">時間を選択してください</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="11:30">11:30</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="12:30">12:30</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="13:30">13:30</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:30">15:30</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="16:30">16:30</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="17:30">17:30</option>
+                                    <option value="18:00">18:00</option>
+                                    <option value="18:30">18:30</option>
+                                    <option value="19:00">19:00</option>
+                                    <option value="19:30">19:30</option>
+                                    <option value="20:00">20:00</option>
+                                    <option value="20:30">20:30</option>
+                                    <option value="21:00">21:00</option>
+                                    <option value="21:30">21:30</option>
+
+                                </select>
                             </div>
 
                             <div class="form__customer-name">
                                 <div class="main__form-label">お名前</div>
-                                <input type="text" class="main__form-input" id="customer_name" name="customer_name" placeholder="田中" required>
+                                <input type="text" class="main__form-input" id="customer_name" name="customer_name"
+                                    placeholder="田中" required>
                             </div>
 
                             <div class="form__special-requests">
                                 <div class="main__form-label">ご要望（任意）</div>
-                                <input type="text" class="main__form-input" id="note" name="note" placeholder="窓側の席を希望します。">
+                                <input type="text" class="main__form-input" id="note" name="note"
+                                    placeholder="窓側の席を希望します。">
                             </div>
                         </div>
                     </div>

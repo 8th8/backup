@@ -1,3 +1,27 @@
+<?php
+// Chỉ cho phép truy cập bằng POST
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    exit("不正なアクセスです。");
+}
+
+// Nhận dữ liệu từ form
+$customer_name = $_POST["customer_name"] ?? "";
+$customer_phone = $_POST["customer_phone"] ?? "";
+$reservation_date = $_POST["reservation_date"] ?? "";
+$reservation_time = $_POST["reservation_time"] ?? "";
+$party_size = $_POST["party_size"] ?? "";
+$note = $_POST["note"] ?? "";
+
+function h($value)
+{
+    return htmlspecialchars(
+        (string)$value,
+        ENT_QUOTES,
+        "UTF-8"
+    );
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -5,7 +29,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reservation_confirm</title>
-    <link rel="stylesheet" href="reservation_confirm.css">
+    <link rel="stylesheet" href="assets/css/reservation_confirm.css">
 </head>
 
 <body>
@@ -57,47 +81,67 @@
                     </section>
                 </div>
 
-                <form action="" class="reservation__form-input">
+                <form action="reservation_insert.php" method="POST" class="reservation__form-input">
+
+                    <input type="hidden" name="reservation_date"
+                        value="<?= h($reservation_date) ?>">
+
+                    <input type="hidden" name="reservation_time"
+                        value="<?= h($reservation_time) ?>">
+
+                    <input type="hidden" name="customer_name"
+                        value="<?= h($customer_name) ?>">
+
+                    <input type="hidden" name="customer_phone"
+                        value="<?= h($customer_phone) ?>">
+
+                    <input type="hidden" name="party_size"
+                        value="<?= h($party_size) ?>">
+
+                    <input type="hidden" name="note"
+                        value="<?= h($note) ?>">
+
                     <div class="main__form-group">
                         <div class="reservation-form__column">
                             <div class="form__customer-name">
                                 <div class="main__form-label">お名前</div>
-                                <input type="text" class="main__form-input" placeholder="田中">
+                                <h2 class="main__form-input"><?= h($customer_name) ?></h2>
+
                             </div>
 
                             <div class="form__phone-number">
                                 <div class="main__form-label">電話番号 </div>
-                                <input type="tel" id="phone-number" name="phone_number" class="main__form-input"
-                                    placeholder="090-0000-0000" required>
+                                <h2 class="main__form-input"><?= h($customer_phone) ?></h2>
                             </div>
 
                             <div class="form__date">
                                 <div class="main__form-label">ご来店日</div>
-                                <input type="date" lang="ja" class="main__form-input">
+                                <h2 class="main__form-input"><?= h($reservation_date) ?></h2>
                             </div>
 
                             <div class="form__arrival-time">
                                 <div class="main__form-label">ご来店時間</div>
-                                <input type="time" class="main__form-input">
+                                <h2 class="main__form-input"><?= h($reservation_time) ?></h2>
                             </div>
 
                             <div class="form__number-of-guests">
-                                <label for="number-of-guests" class="main__form-label">
+                                <div for="number-of-guests" class="main__form-label">
                                     人数
-                                </label>
-                                <input type="number" class="main__form-input" placeholder="">
-
-                                <div class="form__special-requests">
-                                    <div class="main__form-label">ご要望（任意）</div>
-                                    <input type="text" class="main__form-input" placeholder="窓側の席を希望します。">
                                 </div>
+                                <h2 class="main__form-input"><?= h($party_size) ?></h2>
                             </div>
+
+                            <div class="form__special-requests">
+                                <div class="main__form-label">ご要望（任意）</div>
+                                <h2 class="main__form-input"><?= h($note) ?></h2>
+                            </div>
+
                         </div>
                     </div>
 
-
                     <section class="form__footer">
-                        <button type="button" class="reservation__form-back">戻る</button>
+                        <a href="reservation.php" class="reservation__form-back">戻る</a>
+
                         <button type="submit" class="reservation__form-submit">予約を確定する</button>
                     </section>
                 </form>
@@ -107,7 +151,7 @@
             <div class="reservation__sidebar">
                 <div action="" class="restaurant-info">
                     <div class="restaurant-info-img">
-                        <img src="image/ban.png" alt="" class="">
+                        <img src="assets/images/ban.png" alt="" class="">
                     </div>
 
                     <div class="restaurant-info-description">
